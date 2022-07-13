@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\V1\ClienteResourse;
+use App\Models\Clientes;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +21,11 @@ Route::get('/', function () {
 
 Route::get('/mes', function(){
     return view('welcome');
+});
+
+Route::get('/saludo', function() {
+    return ClienteResourse::collection(Clientes::all());
+});
+Route::get('/install', function() {
+    //Artisan::call('migrate');
 });

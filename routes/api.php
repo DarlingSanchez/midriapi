@@ -24,8 +24,16 @@ Route::group( ['middleware' => ["auth:sanctum"]], function(){
     //rutas
     
     Route::post('v1/clientes', [ClienteController::class,'store']);
+    Route::get('v1/clientes', [ClienteController::class, 'index']);
+    Route::get('v1/clientes/{id}', [ClienteController::class, 'edit']);
+    Route::post('v1/clientes/update', [ClienteController::class, 'update']);
 });
-Route::get('v1/clientes/{id}', [ClienteController::class, 'index']);
+
+
+
+// Route::apiResource('v1/clientes',ClienteController::class)
+//     ->only(['index','show'])
+//     ->middleware(['auth:sanctum', 'ability:check-status,place-orders']);
 
 
 //Route::post('v1/clientes', ClienteController::class)->only('store');

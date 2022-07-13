@@ -35,11 +35,26 @@ return [
     |
     */
 
+  
     'guards' => [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
-        ]
+        ],
+        'api' => [
+            'driver' => 'sanctum',
+            'provider' => 'admins',
+        ],
+        
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'admin-api' => [
+            'driver' => 'sanctum',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -60,15 +75,23 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
+        //'users' => [
+        //    'driver' => 'eloquent',
+        //    'model' => App\Models\User::class,
+        //],
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
     ],
 
     /*
