@@ -72,14 +72,7 @@ class LoginController extends Controller
         return response()->json([
             "status" => 1,
             "message" => "¡Registro de usuario exitoso!",
-        ],200);  
-
-    //    $reponse =[
-    //         "user" => $user,
-    //         "token" => $token
-    //    ];
-
-       
+        ],200);         
     }
     public function userProfile() {
         return response()->json([

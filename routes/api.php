@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\V1\ClienteController;
+use App\Http\Controllers\Api\V1\ProductoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,11 +23,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group( ['middleware' => ["auth:sanctum"]], function(){
     //rutas
-    
+
+    //RUTAS DE CLIENTES
     Route::post('v1/clientes', [ClienteController::class,'store']);
     Route::get('v1/clientes', [ClienteController::class, 'index']);
     Route::get('v1/clientes/{id}', [ClienteController::class, 'edit']);
     Route::post('v1/clientes/update', [ClienteController::class, 'update']);
+
+    //RUTAS DE PRODUCTOS
+    Route::get('v1/productos', [ProductoController::class, 'index']);
+    Route::post('v1/productos',[ProductoController::class, 'store']);
 });
 
 
