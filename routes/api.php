@@ -35,7 +35,9 @@ Route::group( ['middleware' => ["auth:sanctum"]], function(){
     Route::post('v1/productos',[ProductoController::class, 'store']);
 });
 
-
+Route::group(['middleware' => ['cors']], function () {
+    //Rutas a las que se permitirá acceso
+});
 
 // Route::apiResource('v1/clientes',ClienteController::class)
 //     ->only(['index','show'])
