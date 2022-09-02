@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\V1\ClienteController;
+use App\Http\Controllers\Api\V1\ObjetivoController;
 use App\Http\Controllers\Api\V1\ProductoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,11 @@ Route::group( ['middleware' => ["auth:sanctum"]], function(){
     //RUTAS DE PRODUCTOS
     Route::get('v1/productos', [ProductoController::class, 'index']);
     Route::post('v1/productos',[ProductoController::class, 'store']);
+
+    //RUTAS DE OBJETIVOS
+    Route::get('v1/objetivos', [ObjetivoController::class, 'index']);
+    Route::post('v1/objetivos',[ObjetivoController::class, 'store']);
+    Route::get('v1/objetivos/{id}', [ObjetivoController::class, 'edit']);
 });
 
 Route::group(['middleware' => ['cors']], function () {
